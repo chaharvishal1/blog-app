@@ -31,7 +31,9 @@ const Home = () => {
       <Container>
         <div className='flex flex-wrap'>
           {posts.map((post) => (
-            <PostCard key={post.$id} post={post} />
+            <div key={post.$id} className='p-2 w-1/4'>
+              <PostCard {...post} />
+            </div>
           ))}
         </div>
       </Container>

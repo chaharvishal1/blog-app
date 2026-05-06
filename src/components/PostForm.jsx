@@ -19,7 +19,7 @@ const PostForm = ({post}) => {
 
     const submit = async (data) => {
         if(post) {
-            const file = data.image[0] ? await storageService.uploadImage(data.image[0]) : null;
+            const file = data.image?.[0] ? await storageService.uploadImage(data.image[0]) : null;
             if(file) {
                 storageService.deleteImage(post.featureImage);
             }
@@ -31,7 +31,7 @@ const PostForm = ({post}) => {
             }
         }
         else {
-            const file = data.image[0] ? await storageService.uploadFile(data.image[0]) : null;
+            const file = data.image?.[0] ? await storageService.uploadImage(data.image[0]) : null;
             // const file =  await storageService.uploadImage(data.image[0]);
 
             if(file) {
@@ -70,7 +70,7 @@ const PostForm = ({post}) => {
         <RTE label="Content" name="content" control={control} defaultValue={getValues("content")} />
       </div>
       <div className='w-1/3 px-2'>
-        <Input label="Image file" type="file" className="mb-4" accept="image/png, image/jpg, image/jpeg, image/gif" {...register("image"), { required: !post}} />
+        <Input label="Image file" type="file" className="mb-4" accept="image/png, image/jpg, image/jpeg, image/gif" {...register("image", { required: !post })} />
         {post && <img src={storageService.imagePreview(post.featureImage)} alt="Post image" className="mb-4 max-h-48 object-cover" />}
         <Select options={["active", "inactive"]} label="Status" className="mb-4" {...register("status", { required: true })} />
         <Button type="submit" bgColor={post ? "bg-green-500" : undefined} className="w-full">{post ? "Update" : "Submit"}</Button>

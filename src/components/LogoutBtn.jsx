@@ -6,10 +6,13 @@ import authService from '../appwrite/auth'
 function LogoutBtn() {
   const dispatch = useDispatch()
 
-  const handleLogout = () => {
-    authService.logout().then(() => {
-        dispatch(logout())
-    }) 
+  const handleLogout = async () => {
+    try {
+      await authService.logout()
+      dispatch(logout())
+    } catch (error) {
+      console.error('Logout failed:', error)
+    }
   }
 
   return (

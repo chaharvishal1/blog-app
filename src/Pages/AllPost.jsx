@@ -6,8 +6,8 @@ const AllPost = () => {
   const [posts, setPosts] = useState([])
   useEffect(() => {
     storageService.getPosts([])
-    .then((postData) => {
-      setPosts(postData)
+    .then((posts) => {
+      if(posts) setPosts(posts.documents);
     })
   }, [])
 
@@ -16,7 +16,9 @@ const AllPost = () => {
       <Container>
         <div className='flex flex-wrap'>
             {posts.map((post) => (
-                <PostCard key={post.$id} post={post} />
+              <div key={post.$id} className='p-2 w-1/4'>
+                <PostCard {...post} />
+              </div>
             ))}
         </div>
       </Container>
