@@ -1,5 +1,5 @@
 import React, {useEffect, useCallback} from 'react'
-import { Input, Button, RTE, Select } from './FormModule/Index';
+import { Input, Button, RTE, Select } from './FormModule/index.jsx';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';

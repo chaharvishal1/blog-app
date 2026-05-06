@@ -1,5 +1,5 @@
 import React from 'react'
-import {Input, Button} from './FormModule/Index'
+import {Input, Button} from './FormModule/index.jsx'
 import {login as authLogin} from '../store/authSlice'
 import {useDispatch} from 'react-redux'
 import { useNavigate } from 'react-router-dom'

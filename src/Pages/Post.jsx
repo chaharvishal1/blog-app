@@ -1,7 +1,7 @@
 import React, {use, useEffect, useState} from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Container } from '../components';
-import { Button } from '../components/FormModule/Index';
+import { Button } from '../components/FormModule/index.jsx';
 import storageService from '../appwrite/storage';
 import parse from 'html-react-parser';
 import { useSelector } from 'react-redux';

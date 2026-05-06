@@ -1,5 +1,5 @@
 import React from 'react'
-import { Input, Button } from './FormModule/Index';
+import { Input, Button } from './FormModule/index.jsx';
 import { useForm } from 'react-hook-form';
 import authService from '../appwrite/auth';
 import { useDispatch } from 'react-redux';
